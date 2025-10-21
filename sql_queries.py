@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS staging_events (
     itemInSession int,
     lastName text,
     length float,
-    level text,
+    level varchar(50),
     location text,
     method text,
     page text,
@@ -60,7 +60,7 @@ songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (
 """)
 
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users (
-user_id int PRIMARY KEY, first_name text, last_name text, gender text, level text)
+user_id int PRIMARY KEY, first_name text, last_name text, gender text, level varchar(50))
 """)
 
 song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (
