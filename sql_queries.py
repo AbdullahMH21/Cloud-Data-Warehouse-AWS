@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS staging_songs (
 """)
 
 songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (
-    songplay_id int PRIMARY KEY, start_time DATETIME, user_id int, level int, song_id int, artist_id int, session_id int, location text, user_agent text)
+    songplay_id int PRIMARY KEY, start_time DATETIME, user_id int, level varchar(50), song_id int, artist_id int, session_id int, location text, user_agent text)
 """)
 
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users (
