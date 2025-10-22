@@ -26,12 +26,12 @@ CREATE TABLE IF NOT EXISTS staging_events (
     itemInSession int,
     lastName text,
     length float,
-    level varchar(50),
+    level text,
     location text,
     method text,
     page text,
     registration bigint,
-    sessionId int,
+    session_id int,
     song text,
     status int,
     ts bigint,
@@ -43,12 +43,12 @@ CREATE TABLE IF NOT EXISTS staging_events (
 staging_songs_table_create = ("""
 CREATE TABLE IF NOT EXISTS staging_songs (
     num_songs int,
-    artist_id text,
+    artist_id int,
     artist_latitude float,
     artist_longitude float,
     artist_location text,
     artist_name text,
-    song_id text,
+    song_id int,
     title text,
     duration float,
     year int
@@ -56,11 +56,11 @@ CREATE TABLE IF NOT EXISTS staging_songs (
 """)
 
 songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (
-    songplay_id int PRIMARY KEY, start_time DATETIME, user_id int, level varchar(50), song_id int, artist_id int, session_id int, location text, user_agent text)
+    songplay_id int PRIMARY KEY, start_time DATETIME, user_id int, level text, song_id int, artist_id int, session_id int, location text, user_agent text)
 """)
 
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users (
-user_id int PRIMARY KEY, first_name text, last_name text, gender text, level varchar(50))
+user_id int PRIMARY KEY, first_name text, last_name text, gender text, level text)
 """)
 
 song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (
@@ -74,7 +74,7 @@ artist_id int PRIMARY KEY, name text, location text, latitude float, longitude f
 """)
 
 time_table_create = ("""CREATE TABLE IF NOT EXISTS time (
-start_time DATETIME PRIMARY KEY, hour smallint, day smallint, week smallint, month smallint, year smallint, weekday varchar(10))
+start_time DATETIME PRIMARY KEY, hour int, day int, week int, month int, year int, weekday varchar(10))
 """)
 
 # STAGING TABLES
