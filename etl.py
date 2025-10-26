@@ -2,13 +2,13 @@ import configparser
 import psycopg2
 from sql_queries import copy_table_queries, insert_table_queries
 
-
+"""Load the tables into Redshift"""
 def load_staging_tables(cur, conn):
     for query in copy_table_queries:
         cur.execute(query)
         conn.commit()
 
-
+"""Insert the data into the loaded tables"""
 def insert_tables(cur, conn):
     for query in insert_table_queries:
         cur.execute(query)
@@ -26,7 +26,6 @@ def main():
     insert_tables(cur, conn)
 
     conn.close()
-
 
 if __name__ == "__main__":
     main()
